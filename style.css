@@ -4,7 +4,6 @@
     box-sizing: border-box;
 }
 
-/* ========== FUNDO PERSONALIZÁVEL ========== */
 body {
     background-image: url('/assets/baixados.jpg');
     background-size: cover;
@@ -14,9 +13,9 @@ body {
     position: relative;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     min-height: 100vh;
+    color: #ffffff;
 }
 
-/* Overlay para escurecer o fundo */
 body::before {
     content: '';
     position: fixed;
@@ -24,15 +23,18 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, rgba(0, 25, 45, 0.88) 0%, rgba(0, 45, 75, 0.92) 100%);
+    background: linear-gradient(135deg, rgba(0, 25, 45, 0.92) 0%, rgba(0, 45, 75, 0.95) 100%);
     z-index: 0;
 }
 
-body.light::before {
-    background: linear-gradient(135deg, rgba(240, 248, 255, 0.96) 0%, rgba(230, 242, 255, 0.96) 100%);
+body.light {
+    color: #0a2a3a;
 }
 
-/* ========== SIDEBAR ESQUERDA ========== */
+body.light::before {
+    background: linear-gradient(135deg, rgba(245, 250, 255, 0.98) 0%, rgba(230, 245, 255, 0.98) 100%);
+}
+
 .sidebar {
     position: fixed;
     top: 0;
@@ -45,6 +47,11 @@ body.light::before {
     z-index: 10000;
     transition: left 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1);
     box-shadow: 5px 0 30px rgba(0, 0, 0, 0.3);
+}
+
+body.light .sidebar {
+    background: rgba(245, 250, 255, 0.96);
+    border-right: 1px solid rgba(0, 100, 150, 0.3);
 }
 
 .sidebar.open {
@@ -60,11 +67,20 @@ body.light::before {
     background: rgba(0, 40, 60, 0.6);
 }
 
+body.light .sidebar-header {
+    border-bottom: 1px solid rgba(0, 100, 150, 0.3);
+    background: rgba(0, 80, 120, 0.1);
+}
+
 .sidebar-header h3 {
     color: #00d8ff;
     font-size: 1.3rem;
     font-weight: 600;
     letter-spacing: 1px;
+}
+
+body.light .sidebar-header h3 {
+    color: #0088bb;
 }
 
 .sidebar-close {
@@ -80,6 +96,12 @@ body.light::before {
     align-items: center;
     justify-content: center;
     transition: all 0.3s ease;
+}
+
+body.light .sidebar-close {
+    background: rgba(0, 100, 150, 0.1);
+    border-color: rgba(0, 100, 150, 0.3);
+    color: #1a5a7a;
 }
 
 .sidebar-close:hover {
@@ -110,6 +132,11 @@ body.light::before {
     border: 1px solid rgba(0, 200, 255, 0.2);
 }
 
+body.light .stat-item {
+    background: rgba(0, 100, 150, 0.08);
+    border-color: rgba(0, 100, 150, 0.2);
+}
+
 .stat-value {
     display: block;
     font-size: 1.6rem;
@@ -117,10 +144,18 @@ body.light::before {
     color: #00d8ff;
 }
 
+body.light .stat-value {
+    color: #0088bb;
+}
+
 .stat-label {
     font-size: 0.7rem;
     color: #cceeff;
     letter-spacing: 0.5px;
+}
+
+body.light .stat-label {
+    color: #3a6a8a;
 }
 
 .sidebar-links h4, .sidebar-tip h4 {
@@ -130,6 +165,12 @@ body.light::before {
     font-weight: 600;
     border-left: 3px solid #00d8ff;
     padding-left: 12px;
+}
+
+body.light .sidebar-links h4,
+body.light .sidebar-tip h4 {
+    color: #0088bb;
+    border-left-color: #0088bb;
 }
 
 .sidebar-links ul {
@@ -152,10 +193,20 @@ body.light::before {
     font-size: 0.9rem;
 }
 
+body.light .sidebar-links a {
+    color: #1a5a7a;
+    background: rgba(0, 100, 150, 0.05);
+}
+
 .sidebar-links a:hover {
     color: #00d8ff;
     background: rgba(0, 150, 255, 0.15);
     transform: translateX(6px);
+}
+
+body.light .sidebar-links a:hover {
+    color: #0088bb;
+    background: rgba(0, 100, 150, 0.12);
 }
 
 .sidebar-tip {
@@ -165,13 +216,21 @@ body.light::before {
     border: 1px solid rgba(0, 200, 255, 0.2);
 }
 
+body.light .sidebar-tip {
+    background: rgba(0, 100, 150, 0.05);
+    border-color: rgba(0, 100, 150, 0.15);
+}
+
 .sidebar-tip p {
     color: #e4fbff;
     font-size: 0.85rem;
     line-height: 1.45;
 }
 
-/* Botão Hambúrguer (profissional) */
+body.light .sidebar-tip p {
+    color: #3a6a8a;
+}
+
 .sidebar-toggle {
     position: fixed;
     top: 24px;
@@ -192,6 +251,11 @@ body.light::before {
     transition: all 0.3s ease;
 }
 
+body.light .sidebar-toggle {
+    background: rgba(200, 220, 240, 0.85);
+    border-color: rgba(0, 100, 150, 0.4);
+}
+
 .sidebar-toggle:hover {
     background: rgba(0, 200, 255, 0.2);
     transform: scale(1.02);
@@ -205,7 +269,10 @@ body.light::before {
     transition: all 0.3s ease;
 }
 
-/* Overlay para fechar sidebar no mobile */
+body.light .sidebar-toggle span {
+    background: #0088bb;
+}
+
 .sidebar-overlay {
     position: fixed;
     top: 0;
@@ -221,7 +288,6 @@ body.light::before {
     display: block;
 }
 
-/* ========== CONTAINER PRINCIPAL ========== */
 .container {
     max-width: 1300px;
     margin: 0 auto;
@@ -230,7 +296,6 @@ body.light::before {
     z-index: 1;
 }
 
-/* ========== HERO SECTION ========== */
 .hero {
     text-align: center;
     padding: 60px 40px;
@@ -240,6 +305,11 @@ body.light::before {
     border-radius: 32px;
     border: 1px solid rgba(0, 200, 255, 0.3);
     position: relative;
+}
+
+body.light .hero {
+    background: rgba(245, 250, 255, 0.85);
+    border-color: rgba(0, 100, 150, 0.25);
 }
 
 .hero-badge {
@@ -254,6 +324,11 @@ body.light::before {
     margin-bottom: 20px;
 }
 
+body.light .hero-badge {
+    background: rgba(0, 100, 150, 0.15);
+    color: #0088bb;
+}
+
 .hero h1 {
     font-size: 3.2rem;
     font-weight: 800;
@@ -264,10 +339,21 @@ body.light::before {
     margin-bottom: 12px;
 }
 
+body.light .hero h1 {
+    background: linear-gradient(135deg, #006699, #0088bb);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
 .hero p {
     font-size: 1.2rem;
     color: #b8f0ff;
     margin-bottom: 32px;
+}
+
+body.light .hero p {
+    color: #1a5a7a;
 }
 
 .hero-stats {
@@ -287,15 +373,123 @@ body.light::before {
     color: #00d8ff;
 }
 
+body.light .hero-stat span {
+    color: #0088bb;
+}
+
 .hero-stat label {
     font-size: 0.8rem;
     color: #cceeff;
+}
+
+body.light .hero-stat label {
+    color: #3a6a8a;
 }
 
 .hero-controls {
     position: absolute;
     top: 24px;
     right: 32px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+.enem-card {
+    background: rgba(5, 35, 55, 0.8);
+    backdrop-filter: blur(12px);
+    border-radius: 20px;
+    border: 1px solid rgba(0, 200, 255, 0.3);
+    padding: 10px 16px;
+    min-width: 210px;
+    transition: all 0.3s ease;
+}
+
+body.light .enem-card {
+    background: rgba(245, 250, 255, 0.9);
+    border-color: rgba(0, 100, 150, 0.3);
+}
+
+.enem-card:hover {
+    border-color: #00d8ff;
+    transform: translateY(-2px);
+}
+
+.enem-card-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(0, 200, 255, 0.2);
+}
+
+.enem-icon {
+    font-size: 1.1rem;
+}
+
+.enem-title {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #00d8ff;
+    letter-spacing: 1px;
+}
+
+body.light .enem-title {
+    color: #0088bb;
+}
+
+.enem-card-body {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+#notaEnemInput {
+    width: 100px;
+    padding: 8px 12px;
+    border-radius: 30px;
+    border: 1px solid rgba(0, 200, 255, 0.4);
+    background: rgba(10, 42, 64, 0.9);
+    color: white;
+    font-size: 0.85rem;
+    text-align: center;
+    outline: none;
+}
+
+body.light #notaEnemInput {
+    background: white;
+    border-color: rgba(0, 100, 150, 0.3);
+    color: #0a2a3a;
+}
+
+#notaEnemInput:focus {
+    border-color: #00d8ff;
+    box-shadow: 0 0 10px rgba(0, 200, 255, 0.3);
+}
+
+#btnSimularNota {
+    background: linear-gradient(135deg, #00aaff, #00d8ff);
+    border: none;
+    padding: 8px 16px;
+    border-radius: 30px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 0.75rem;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+body.light #btnSimularNota {
+    background: linear-gradient(135deg, #006699, #0088bb);
+}
+
+#btnSimularNota:hover {
+    transform: scale(1.02);
+    box-shadow: 0 3px 10px rgba(0, 200, 255, 0.3);
 }
 
 .theme-btn {
@@ -310,18 +504,27 @@ body.light::before {
     font-size: 0.85rem;
 }
 
+body.light .theme-btn {
+    background: rgba(0, 100, 150, 0.1);
+    border-color: rgba(0, 100, 150, 0.3);
+    color: #1a5a7a;
+}
+
 .theme-btn:hover {
     background: rgba(0, 200, 255, 0.3);
     color: white;
 }
 
-/* ========== SEÇÕES ========== */
 .section-title {
     font-size: 1.8rem;
     font-weight: 700;
     color: #00d8ff;
     margin-bottom: 28px;
     text-align: center;
+}
+
+body.light .section-title {
+    color: #0088bb;
 }
 
 .areas-grid {
@@ -342,6 +545,11 @@ body.light::before {
     transition: all 0.3s ease;
 }
 
+body.light .area-card {
+    background: rgba(245, 250, 255, 0.85);
+    border-color: rgba(0, 100, 150, 0.2);
+}
+
 .area-card:hover {
     transform: translateY(-6px);
     border-color: #00d8ff;
@@ -360,13 +568,20 @@ body.light::before {
     margin-bottom: 8px;
 }
 
+body.light .area-card h3 {
+    color: #0088bb;
+}
+
 .area-count {
     font-size: 1.6rem;
     font-weight: 800;
     color: #00aaff;
 }
 
-/* ========== SEÇÃO DE BUSCA ========== */
+body.light .area-count {
+    color: #006699;
+}
+
 .search-section {
     margin-bottom: 40px;
 }
@@ -397,14 +612,20 @@ body.light::before {
     transition: all 0.3s ease;
 }
 
-.search-bar:focus {
-    border-color: #00d8ff;
-    background: rgba(20, 60, 90, 0.95);
-    box-shadow: 0 0 15px rgba(0, 200, 255, 0.2);
+body.light .search-bar {
+    background: rgba(255, 255, 255, 0.9);
+    border-color: rgba(0, 100, 150, 0.3);
+    color: #1a4a6e;
 }
 
 .search-bar::placeholder {
     color: #8ab3cc;
+}
+
+.search-bar:focus {
+    border-color: #00d8ff;
+    background: rgba(20, 60, 90, 0.95);
+    box-shadow: 0 0 15px rgba(0, 200, 255, 0.2);
 }
 
 button {
@@ -419,6 +640,10 @@ button {
     transition: all 0.3s ease;
 }
 
+body.light button {
+    background: linear-gradient(135deg, #006699, #0088bb);
+}
+
 button:hover {
     transform: scale(1.02);
     box-shadow: 0 5px 20px rgba(0, 200, 255, 0.3);
@@ -428,7 +653,6 @@ button:hover {
     min-width: 120px;
 }
 
-/* ========== AUTOCOMPLETE ========== */
 .autocomplete-items {
     position: absolute;
     top: 100%;
@@ -444,6 +668,11 @@ button:hover {
     border: 1px solid rgba(0, 200, 255, 0.3);
 }
 
+body.light .autocomplete-items {
+    background: rgba(255, 255, 255, 0.98);
+    border-color: rgba(0, 100, 150, 0.3);
+}
+
 .autocomplete-item {
     padding: 12px 20px;
     cursor: pointer;
@@ -451,12 +680,20 @@ button:hover {
     transition: all 0.2s ease;
 }
 
+body.light .autocomplete-item {
+    color: #1a4a6e;
+}
+
 .autocomplete-item:hover {
     background: rgba(0, 200, 255, 0.15);
     color: white;
 }
 
-/* ========== CARDS DE RESULTADO ========== */
+body.light .autocomplete-item:hover {
+    background: rgba(0, 100, 150, 0.1);
+    color: #006699;
+}
+
 .card-guia {
     background: rgba(5, 35, 55, 0.85);
     backdrop-filter: blur(12px);
@@ -465,6 +702,11 @@ button:hover {
     border: 1px solid rgba(0, 200, 255, 0.3);
     margin-bottom: 32px;
     position: relative;
+}
+
+body.light .card-guia {
+    background: rgba(255, 255, 255, 0.92);
+    border-color: rgba(0, 100, 150, 0.2);
 }
 
 .close-btn {
@@ -485,9 +727,16 @@ button:hover {
     transition: all 0.3s ease;
 }
 
+body.light .close-btn {
+    background: rgba(0, 100, 150, 0.1);
+    border-color: rgba(0, 100, 150, 0.3);
+    color: #1a5a7a;
+}
+
 .close-btn:hover {
     background: rgba(0, 200, 255, 0.35);
     transform: scale(1.05);
+    color: white;
 }
 
 .card-guia h2 {
@@ -496,12 +745,21 @@ button:hover {
     margin-bottom: 20px;
 }
 
+body.light .card-guia h2 {
+    color: #0088bb;
+}
+
 .card-guia h3 {
     color: #88eeff;
     margin: 24px 0 16px 0;
     font-size: 1.2rem;
     border-bottom: 1px solid rgba(0, 200, 255, 0.25);
     padding-bottom: 8px;
+}
+
+body.light .card-guia h3 {
+    color: #006699;
+    border-bottom-color: rgba(0, 100, 150, 0.2);
 }
 
 .info-rapida {
@@ -514,6 +772,10 @@ button:hover {
     margin: 20px 0;
 }
 
+body.light .info-rapida {
+    background: rgba(0, 100, 150, 0.04);
+}
+
 .info-item {
     background: rgba(0, 150, 255, 0.08);
     padding: 14px;
@@ -522,8 +784,18 @@ button:hover {
     border-left: 3px solid #00d8ff;
 }
 
+body.light .info-item {
+    background: rgba(0, 100, 150, 0.05);
+    color: #1a4a6e;
+    border-left-color: #0088bb;
+}
+
 .info-item strong {
     color: #00d8ff;
+}
+
+body.light .info-item strong {
+    color: #0088bb;
 }
 
 .rota {
@@ -534,12 +806,30 @@ button:hover {
     border-left: 3px solid #00d8ff;
 }
 
+body.light .rota {
+    background: rgba(0, 100, 150, 0.05);
+    border-left-color: #0088bb;
+}
+
+.rota strong {
+    color: #00d8ff;
+}
+
+body.light .rota strong {
+    color: #0088bb;
+}
+
 .passo {
     margin-left: 24px;
     padding: 8px 12px;
     border-left: 2px solid #00aaff;
     margin-top: 8px;
     color: #e4fbff;
+}
+
+body.light .passo {
+    color: #1a4a6e;
+    border-left-color: #006699;
 }
 
 .faculdade-item {
@@ -550,9 +840,19 @@ button:hover {
     border: 1px solid rgba(0, 150, 255, 0.2);
 }
 
+body.light .faculdade-item {
+    background: rgba(0, 100, 150, 0.04);
+    border-color: rgba(0, 100, 150, 0.15);
+}
+
 .faculdade-publica {
     background: rgba(0, 255, 100, 0.08);
     border-color: rgba(0, 255, 150, 0.25);
+}
+
+body.light .faculdade-publica {
+    background: rgba(0, 150, 100, 0.05);
+    border-color: rgba(0, 150, 100, 0.2);
 }
 
 .faculdade-item h4 {
@@ -560,10 +860,18 @@ button:hover {
     margin-bottom: 6px;
 }
 
+body.light .faculdade-item h4 {
+    color: #0088bb;
+}
+
 .badge-publica {
     color: #67ffe8;
     font-weight: 600;
     font-size: 0.8rem;
+}
+
+body.light .badge-publica {
+    color: #008866;
 }
 
 .area-cursos-lista {
@@ -573,6 +881,20 @@ button:hover {
     padding: 28px;
     border: 1px solid rgba(0, 200, 255, 0.3);
     margin-bottom: 30px;
+}
+
+body.light .area-cursos-lista {
+    background: rgba(255, 255, 255, 0.95);
+    border-color: rgba(0, 100, 150, 0.2);
+}
+
+.area-cursos-lista h2 {
+    color: #00d8ff;
+    margin-bottom: 20px;
+}
+
+body.light .area-cursos-lista h2 {
+    color: #0088bb;
 }
 
 .curso-item {
@@ -588,9 +910,21 @@ button:hover {
     font-size: 0.9rem;
 }
 
+body.light .curso-item {
+    background: rgba(0, 100, 150, 0.08);
+    border-color: rgba(0, 100, 150, 0.2);
+    color: #1a4a6e;
+}
+
 .curso-item:hover {
     background: rgba(0, 200, 255, 0.25);
     transform: scale(1.02);
+    color: white;
+}
+
+body.light .curso-item:hover {
+    background: rgba(0, 100, 150, 0.15);
+    color: #006699;
 }
 
 .fonte {
@@ -602,7 +936,11 @@ button:hover {
     text-align: right;
 }
 
-/* ========== PLAYER DE MÚSICA ========== */
+body.light .fonte {
+    color: #8ab3cc;
+    border-top-color: rgba(0, 100, 150, 0.15);
+}
+
 .music-player {
     position: fixed;
     bottom: 24px;
@@ -619,6 +957,11 @@ button:hover {
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
 }
 
+body.light .music-player {
+    background: rgba(240, 248, 255, 0.9);
+    border-color: rgba(0, 100, 150, 0.3);
+}
+
 .music-player-info {
     display: flex;
     flex-direction: column;
@@ -628,6 +971,10 @@ button:hover {
     font-size: 0.8rem;
     color: #e4fbff;
     font-weight: 600;
+}
+
+body.light .music-name {
+    color: #1a5a7a;
 }
 
 .music-status {
@@ -648,7 +995,10 @@ button:hover {
     justify-content: center;
 }
 
-/* ========== RESPONSIVIDADE ========== */
+body.light .play-btn {
+    background: linear-gradient(135deg, #006699, #0088bb);
+}
+
 @media (max-width: 992px) {
     .hero h1 { font-size: 2.5rem; }
     .hero-stats { gap: 32px; }
@@ -664,6 +1014,14 @@ button:hover {
     .card-guia { padding: 24px; }
     .info-rapida { grid-template-columns: 1fr; }
     .sidebar-toggle { top: 16px; left: 16px; width: 40px; height: 40px; }
+    .hero-controls {
+        position: relative;
+        top: auto;
+        right: auto;
+        justify-content: center;
+        margin-top: 20px;
+    }
+    .enem-card { width: 100%; max-width: 280px; }
 }
 
 @media (max-width: 480px) {
@@ -675,46 +1033,400 @@ button:hover {
     #btnBuscar { width: 100%; max-width: 300px; }
     .music-player { padding: 6px 16px; gap: 12px; }
     .play-btn { width: 36px; height: 36px; }
+    .enem-card-body { flex-direction: column; }
+    #notaEnemInput { width: 100%; }
+    #btnSimularNota { width: 100%; }
 }
 
-/* ========== MODO LIGHT ========== */
-body.light .hero,
-body.light .area-card,
-body.light .card-guia,
-body.light .area-cursos-lista,
-body.light .sidebar {
-    background: rgba(245, 250, 255, 0.92);
+/* Animações */
+.area-card, .hero, .search-section, .card-guia {
+    animation: fadeInUp 0.6s ease-out forwards;
+    opacity: 0;
 }
 
-body.light .hero h1,
-body.light .section-title,
-body.light .card-guia h2,
-body.light .area-card h3 {
+.area-card:nth-child(1) { animation-delay: 0.1s; }
+.area-card:nth-child(2) { animation-delay: 0.2s; }
+.area-card:nth-child(3) { animation-delay: 0.3s; }
+.area-card:nth-child(4) { animation-delay: 0.4s; }
+.area-card:nth-child(5) { animation-delay: 0.5s; }
+.area-card:nth-child(6) { animation-delay: 0.6s; }
+.area-card:nth-child(7) { animation-delay: 0.7s; }
+.area-card:nth-child(8) { animation-delay: 0.8s; }
+.area-card:nth-child(9) { animation-delay: 0.9s; }
+.area-card:nth-child(10) { animation-delay: 1s; }
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero {
+    animation: fadeInUp 0.8s ease-out forwards;
+    animation-delay: 0s;
+}
+
+.search-section {
+    animation: fadeInUp 0.6s ease-out forwards;
+    animation-delay: 0.3s;
+}
+
+.area-card {
+    position: relative;
+}
+
+.area-card::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 200, 255, 0.9);
+    color: #001f35;
+    font-size: 0.7rem;
+    font-weight: bold;
+    padding: 4px 10px;
+    border-radius: 20px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    margin-bottom: 8px;
+    z-index: 10;
+}
+
+body.light .area-card::after {
+    background: rgba(0, 100, 150, 0.9);
+    color: white;
+}
+
+.area-card:hover::after {
+    opacity: 1;
+}
+
+.back-to-top {
+    position: fixed;
+    bottom: 100px;
+    right: 24px;
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, #00aaff, #00d8ff);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 200, 255, 0.3);
+    border: none;
+}
+
+body.light .back-to-top {
     background: linear-gradient(135deg, #006699, #0088bb);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
 }
 
-body.light .hero p,
-body.light .info-item,
-body.light .passo,
-body.light .fonte,
-body.light .curso-item {
-    color: #1a4a6e;
+.back-to-top.show {
+    opacity: 1;
+    visibility: visible;
 }
 
-body.light .info-item strong,
-body.light .rota strong {
-    color: #006699;
+.back-to-top:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 200, 255, 0.4);
 }
 
-body.light .hero-badge,
-body.light .stat-value {
+.back-to-top svg {
+    width: 24px;
+    height: 24px;
+    fill: white;
+}
+
+.footer {
+    margin-top: 60px;
+    padding: 30px 24px;
+    text-align: center;
+    background: rgba(5, 35, 55, 0.6);
+    backdrop-filter: blur(12px);
+    border-radius: 24px;
+    border: 1px solid rgba(0, 200, 255, 0.2);
+}
+
+body.light .footer {
+    background: rgba(245, 250, 255, 0.85);
+    border-color: rgba(0, 100, 150, 0.15);
+}
+
+.footer p {
+    color: #8ab3cc;
+    font-size: 0.8rem;
+}
+
+body.light .footer p {
+    color: #5a7a8a;
+}
+
+.footer a {
+    color: #00d8ff;
+    text-decoration: none;
+}
+
+body.light .footer a {
     color: #0088bb;
 }
 
-body.light .sidebar-links a,
-body.light .sidebar-tip p {
-    color: #1a4a6e;
+.footer a:hover {
+    text-decoration: underline;
+}
+
+.theme-btn:active {
+    transform: scale(0.95);
+}
+
+h1, h2, h3, .section-title {
+    letter-spacing: -0.5px;
+}
+
+.hero h1 {
+    letter-spacing: -1px;
+}
+
+.hero p {
+    letter-spacing: -0.3px;
+}
+
+@media (max-width: 768px) {
+    .back-to-top {
+        bottom: 80px;
+        right: 16px;
+        width: 42px;
+        height: 42px;
+    }
+}
+
+/* Resultado da simulação */
+.simulacao-resultado {
+    background: rgba(5, 35, 55, 0.85);
+    backdrop-filter: blur(12px);
+    border-radius: 24px;
+    padding: 28px;
+    border: 1px solid rgba(0, 200, 255, 0.3);
+    margin-bottom: 30px;
+    animation: fadeInUp 0.5s ease-out forwards;
+}
+
+body.light .simulacao-resultado {
+    background: rgba(255, 255, 255, 0.92);
+    border-color: rgba(0, 100, 150, 0.2);
+}
+
+.simulacao-header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.simulacao-header h3 {
+    font-size: 1.5rem;
+    color: #00d8ff;
+    margin-bottom: 10px;
+}
+
+.sua-nota-card {
+    display: inline-block;
+    background: rgba(0, 200, 255, 0.15);
+    padding: 8px 20px;
+    border-radius: 40px;
+    font-weight: bold;
+    color: #00d8ff;
+    font-size: 1rem;
+}
+
+.melhor-curso-card {
+    background: linear-gradient(135deg, rgba(0, 200, 255, 0.15), rgba(0, 100, 200, 0.1));
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 30px;
+    text-align: center;
+    border: 1px solid rgba(0, 200, 255, 0.4);
+}
+
+.melhor-curso-label {
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    color: #00d8ff;
+    margin-bottom: 8px;
+}
+
+.melhor-curso-nome {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: white;
+    margin-bottom: 8px;
+}
+
+body.light .melhor-curso-nome {
+    color: #0a2a3a;
+}
+
+.melhor-curso-nota {
+    font-size: 0.85rem;
+    color: #8ab3cc;
+}
+
+.melhor-curso-diferenca {
+    margin-top: 10px;
+    font-weight: 600;
+}
+
+.categorias-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.categoria-card {
+    background: rgba(5, 35, 55, 0.6);
+    backdrop-filter: blur(12px);
+    border-radius: 20px;
+    padding: 20px;
+    border: 1px solid rgba(0, 200, 255, 0.25);
+}
+
+body.light .categoria-card {
+    background: rgba(245, 250, 255, 0.8);
+}
+
+.categoria-card.alta { border-top: 4px solid #67ffe8; }
+.categoria-card.media { border-top: 4px solid #ffaa44; }
+.categoria-card.baixa { border-top: 4px solid #ff6666; }
+
+.categoria-titulo {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(0, 200, 255, 0.2);
+}
+
+.categoria-card.alta .categoria-titulo { color: #67ffe8; }
+.categoria-card.media .categoria-titulo { color: #ffaa44; }
+.categoria-card.baixa .categoria-titulo { color: #ff6666; }
+
+.cursos-simulacao {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.curso-simulacao-card {
+    background: rgba(0, 150, 255, 0.1);
+    padding: 10px 15px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 1px solid rgba(0, 200, 255, 0.2);
+    flex: 1 1 calc(50% - 10px);
+    min-width: 120px;
+}
+
+body.light .curso-simulacao-card {
+    background: rgba(0, 100, 150, 0.08);
+}
+
+.curso-simulacao-card:hover {
+    background: rgba(0, 200, 255, 0.2);
+    transform: translateX(5px);
+}
+
+.curso-simulacao-nome {
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: white;
+}
+
+body.light .curso-simulacao-nome {
+    color: #0a2a3a;
+}
+
+.curso-simulacao-nota {
+    font-size: 0.7rem;
+    color: #8ab3cc;
+}
+
+.curso-simulacao-diferenca {
+    font-size: 0.7rem;
+    font-weight: 600;
+    margin-top: 5px;
+}
+
+.alta .curso-simulacao-diferenca { color: #67ffe8; }
+.media .curso-simulacao-diferenca { color: #ffaa44; }
+.baixa .curso-simulacao-diferenca { color: #ff6666; }
+
+.simulacao-footer {
+    margin-top: 25px;
+    text-align: center;
+    font-size: 0.7rem;
+    color: #8ab3cc;
+    padding-top: 15px;
+    border-top: 1px solid rgba(0, 200, 255, 0.2);
+}
+
+@media (max-width: 768px) {
+    .categorias-grid {
+        grid-template-columns: 1fr;
+    }
+    .curso-simulacao-card {
+        flex: 1 1 100%;
+    }
+}
+
+/* Melhorias para rolagem da simulação com muitos cursos */
+.cursos-simulacao {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    max-height: 500px;
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
+.cursos-simulacao::-webkit-scrollbar {
+    width: 6px;
+}
+
+.cursos-simulacao::-webkit-scrollbar-track {
+    background: rgba(0, 200, 255, 0.1);
+    border-radius: 10px;
+}
+
+.cursos-simulacao::-webkit-scrollbar-thumb {
+    background: rgba(0, 200, 255, 0.4);
+    border-radius: 10px;
+}
+
+.cursos-simulacao::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 200, 255, 0.6);
+}
+
+.curso-simulacao-card {
+    flex: 1 1 calc(33% - 10px);
+    min-width: 140px;
+}
+
+@media (max-width: 768px) {
+    .curso-simulacao-card {
+        flex: 1 1 100%;
+    }
 }
