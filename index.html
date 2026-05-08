@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Guia de Carreiras - São Luís MA |</title>
+    <title>Guia de Carreiras - São Luís MA | SISU 2026</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- SIDEBAR (BARRA LATERAL ESQUERDA) -->
 <div class="sidebar" id="sidebar">
     <div class="sidebar-header">
         <h3>Info Carreiras</h3>
@@ -47,18 +46,15 @@
     </div>
 </div>
 
-<!-- Botão para abrir/fechar sidebar -->
 <div class="sidebar-toggle" id="sidebarToggle">
     <span></span>
     <span></span>
     <span></span>
 </div>
 
-<!-- Overlay para fechar sidebar no mobile -->
 <div class="sidebar-overlay" id="sidebarOverlay"></div>
 
 <div class="container">
-    <!-- Hero Section / Header -->
     <section class="hero">
         <div class="hero-content">
             <span class="hero-badge">SITE GUIA</span>
@@ -80,17 +76,25 @@
             </div>
         </div>
         <div class="hero-controls">
+            <div class="enem-card">
+                <div class="enem-card-header">
+                    <span class="enem-icon">🎯</span>
+                    <span class="enem-title">Simulador ENEM</span>
+                </div>
+                <div class="enem-card-body">
+                    <input type="number" id="notaEnemInput" placeholder="Sua nota ENEM" min="0" max="1000">
+                    <button id="btnSimularNota">Ver chances</button>
+                </div>
+            </div>
             <button class="theme-btn" id="themeToggle">🌙 Dark</button>
         </div>
     </section>
 
-    <!-- Seção de Áreas (Cards) -->
     <section class="areas-section">
         <h2 class="section-title">Áreas do Conhecimento</h2>
         <div class="areas-grid" id="areasGrid"></div>
     </section>
 
-    <!-- Seção de Busca -->
     <section class="search-section">
         <h2 class="section-title">Encontre sua Carreira</h2>
         <div class="search-area">
@@ -102,11 +106,9 @@
         </div>
     </section>
 
-    <!-- Resultado da Busca -->
     <div id="resultado"></div>
 </div>
 
-<!-- Player de Música (Footer fixo) -->
 <div class="music-player">
     <div class="music-player-info">
         <span class="music-name">🎵 Lofi Study Beats</span>
