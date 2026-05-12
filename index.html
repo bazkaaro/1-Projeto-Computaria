@@ -3,120 +3,272 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Guia de Carreiras - São Luís MA | SISU 2026</title>
+    <title>Manutech | Desentupimentos 24h - São Paulo</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
 
-<div class="sidebar" id="sidebar">
-    <div class="sidebar-header">
-        <h3>Info Carreiras</h3>
-        <button class="sidebar-close" id="sidebarClose">✕</button>
+    <!-- Botão da Sidebar (3 linhas) -->
+    <button class="sidebar-btn" id="sidebarBtn">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Sidebar lateral -->
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h3><i class="fas fa-tools"></i> Manutech</h3>
+            <button class="close-sidebar" id="closeSidebar">&times;</button>
+        </div>
+        <div class="sidebar-content">
+            <div class="sidebar-section">
+                <h4><i class="fas fa-wrench"></i> Serviços</h4>
+                <ul>
+                    <li><i class="fas fa-sink"></i> Desentupimento de Pia</li>
+                    <li><i class="fas fa-shower"></i> Desentupimento de Ralo</li>
+                    <li><i class="fas fa-toilet"></i> Desentupimento de Vaso Sanitário</li>
+                    <li><i class="fas fa-database"></i> Desentupimento de Esgoto</li>
+                    <li><i class="fas fa-trash-alt"></i> Limpeza de Caixa de Gordura</li>
+                </ul>
+            </div>
+            <div class="sidebar-section">
+                <h4><i class="fas fa-star-of-life"></i> Diferenciais</h4>
+                <ul>
+                    <li><i class="fas fa-tools"></i> Equipamentos eficientes</li>
+                    <li><i class="fas fa-user-graduate"></i> Profissionais capacitados</li>
+                    <li><i class="fas fa-rocket"></i> Atendimento ágil e discreto</li>
+                </ul>
+            </div>
+            <div class="sidebar-section">
+                <h4><i class="fas fa-file-invoice-dollar"></i> Orçamento</h4>
+                <ul>
+                    <li><i class="fas fa-check-circle"></i> Gratuito e sem compromisso</li>
+                    <li><i class="fas fa-calculator"></i> Valores justos</li>
+                </ul>
+            </div>
+        </div>
     </div>
-    <div class="sidebar-content">
-        <div class="sidebar-stats">
-            <div class="stat-item">
-                <span class="stat-value" id="sidebarTotalCursos">0</span>
-                <span class="stat-label">Total de Cursos</span>
-            </div>
-            <div class="stat-item">
-                <span class="stat-value">10</span>
-                <span class="stat-label">Áreas</span>
-            </div>
-            <div class="stat-item">
-                <span class="stat-value">2026</span>
-                <span class="stat-label">Dados SISU</span>
-            </div>
-        </div>
-        <div class="sidebar-links">
-            <h4>Links Oficiais</h4>
-            <ul>
-                <li><a href="https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem" target="_blank">ENEM</a></li>
-                <li><a href="https://www.gov.br/mec/pt-br/acesso-a-informacao/institucional/sisu" target="_blank">SISU</a></li>
-                <li><a href="https://portalpadrao.ufma.br/" target="_blank">UFMA</a></li>
-                <li><a href="https://www.uema.br" target="_blank">UEMA</a></li>
-                <li><a href="https://www.ifma.edu.br" target="_blank">IFMA</a></li>
-                <li><a href="https://acessounico.mec.gov.br/prouni" target="_blank">Prouni</a></li>
-            </ul>
-        </div>
-        <div class="sidebar-tip">
-            <h4>Dica</h4>
-            <p>As notas de corte do SISU variam conforme a concorrência. Use sua nota do ENEM para simular suas chances!</p>
-        </div>
-    </div>
-</div>
 
-<div class="sidebar-toggle" id="sidebarToggle">
-    <span></span>
-    <span></span>
-    <span></span>
-</div>
+    <div class="overlay" id="overlay"></div>
 
-<div class="sidebar-overlay" id="sidebarOverlay"></div>
-
-<div class="container">
-    <section class="hero">
-        <div class="hero-content">
-            <span class="hero-badge">SITE GUIA</span>
-            <h1>Guia de Carreiras</h1>
-            <p>São Luís - MA</p>
-            <div class="hero-stats">
-                <div class="hero-stat">
-                    <span id="totalCursosContador">0</span>
-                    <label>Carreiras</label>
-                </div>
-                <div class="hero-stat">
-                    <span>10</span>
-                    <label>Áreas</label>
-                </div>
-                <div class="hero-stat">
-                    <span>2026</span>
-                    <label>Dados SISU</label>
-                </div>
+    <header class="header">
+        <div class="container header-container">
+            <div class="logo">
+                <img src="assets/logo manutec.png" alt="Manutech Logo" class="logo-img">
+                <span>Manu<span class="text-laranja">Tech</span></span>
             </div>
+            <nav class="nav">
+                <ul>
+                    <li><a href="#home">Início</a></li>
+                    <li><a href="#servicos">Serviços</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
         </div>
-        <div class="hero-controls">
-            <div class="enem-card">
-                <div class="enem-card-header">
-                    <span class="enem-icon">🎯</span>
-                    <span class="enem-title">Simulador ENEM</span>
-                </div>
-                <div class="enem-card-body">
-                    <input type="number" id="notaEnemInput" placeholder="Sua nota ENEM" min="0" max="1000">
-                    <button id="btnSimularNota">Ver chances</button>
+    </header>
+
+    <!-- Hero 3D -->
+    <section id="home" class="hero">
+        <div class="container hero-container">
+            <div class="hero-image-central reveal">
+                <img src="assets/logo manutec.png" alt="Manutech">
+            </div>
+            <div class="hero-content reveal">
+                <h1 class="hero-title">Desentupimento <span class="text-laranja">24h</span> em São Paulo</h1>
+                <p class="hero-subtitle">Atendimento rápido, eficiente e com preço justo. Resolvemos seu problema sem sujeira e sem bagunça.</p>
+                <div class="hero-buttons">
+                    <a href="https://wa.me/5511999999999" class="btn btn-laranja btn-glow" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Chame no WhatsApp
+                    </a>
+                    <a href="#servicos" class="btn btn-outline">Nossos serviços</a>
                 </div>
             </div>
-            <button class="theme-btn" id="themeToggle">🌙 Dark</button>
         </div>
     </section>
 
-    <section class="areas-section">
-        <h2 class="section-title">Áreas do Conhecimento</h2>
-        <div class="areas-grid" id="areasGrid"></div>
-    </section>
-
-    <section class="search-section">
-        <h2 class="section-title">Encontre sua Carreira</h2>
-        <div class="search-area">
-            <div class="search-wrapper">
-                <input type="text" id="pesquisa" class="search-bar" placeholder="Digite o nome da carreira... (Ex: Medicina, Direito, Engenharia)">
-                <div id="autocomplete" class="autocomplete-items" style="display: none;"></div>
+    <!-- Serviços 3D -->
+    <section id="servicos" class="servicos">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>Nossos <span class="text-laranja">Serviços</span></h2>
+                <p>Soluções completas para sua residência ou empresa em São Paulo</p>
             </div>
-            <button id="btnBuscar">🔍 Buscar</button>
+            <div class="servicos-grid">
+                <div class="servico-card card-3d reveal">
+                    <i class="fas fa-sink"></i>
+                    <h3>Desentupimento de Pia</h3>
+                    <p>Desobstrução rápida de pias de cozinha e lavatórios.</p>
+                </div>
+                <div class="servico-card card-3d reveal">
+                    <i class="fas fa-shower"></i>
+                    <h3>Desentupimento de Ralo</h3>
+                    <p>Ralos internos e externos com alta pressão.</p>
+                </div>
+                <div class="servico-card card-3d reveal">
+                    <i class="fas fa-toilet"></i>
+                    <h3>Desentupimento de Vaso</h3>
+                    <p>Resolução rápida e sem quebrar paredes.</p>
+                </div>
+                <div class="servico-card card-3d reveal">
+                    <i class="fas fa-database"></i>
+                    <h3>Desentupimento de Esgoto</h3>
+                    <p>Limpeza e desobstrução de redes de esgoto.</p>
+                </div>
+                <div class="servico-card card-3d reveal">
+                    <i class="fas fa-trash-alt"></i>
+                    <h3>Caixa de Gordura</h3>
+                    <p>Limpeza e manutenção de caixas de gordura.</p>
+                </div>
+            </div>
+            
+            <!-- Card de orçamento mais criativo -->
+            <div class="orcamento-card reveal card-3d">
+                <div class="orcamento-icon">
+                    <i class="fas fa-file-invoice-dollar"></i>
+                </div>
+                <div class="orcamento-texto">
+                    <h3>Orçamento <span class="text-laranja">Gratuito</span></h3>
+                    <p>Os valores são definidos após avaliação do serviço. Solicite uma visita técnica sem compromisso!</p>
+                    <a href="#contato" class="btn btn-laranja btn-small">Solicitar agora</a>
+                </div>
+            </div>
         </div>
     </section>
 
-    <div id="resultado"></div>
-</div>
+    <!-- Seção de Imagens (4 imagens: 2 flutuantes + 2 extras) -->
+    <section class="imagens-section">
+        <div class="container">
+            <!-- PRIMEIRAS 2 IMAGENS (FLUTUANTES) -->
+            <div class="floating-images">
+                <img src="assets/servico1.jpeg" alt="Técnico trabalhando" class="float-img float-img-left" id="floatImgLeft">
+                <img src="assets/servico2.jpeg" alt="Técnico trabalhando" class="float-img float-img-right" id="floatImgRight">
+            </div>
 
-<div class="music-player">
-    <div class="music-player-info">
-        <span class="music-name">🎵 Lofi Study Beats</span>
-        <span class="music-status" id="musicStatus">Pausado</span>
-    </div>
-    <button class="play-btn" id="playMusicBtn">▶</button>
-</div>
+            <!-- MAIS 2 IMAGENS (FIXAS ABAIXO) -->
+            <div class="imagens-extras">
+                <div class="img-extra reveal card-3d">
+                    <img src="assets/servico3.jpg" alt="Serviço Manutech" class="extra-img">
+                </div>
+                <div class="img-extra reveal card-3d">
+                    <img src="assets/servico5.jpg" alt="Serviço Manutech" class="extra-img">
+                </div>
+            </div>
+        </div>
+    </section>
 
-<script src="script.js"></script>
+    <!-- Antes e Depois (1 CARD) -->
+    <section class="antes-depois">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>Antes <span class="text-laranja">e Depois</span></h2>
+            </div>
+            <div class="galeria-grid">
+                <div class="card-comparacao reveal card-3d">
+                    <div class="comparacao-item">
+                        <div class="label">ANTES</div>
+                        <div class="placeholder-img img-antes">📸 Sua imagem de antes</div>
+                    </div>
+                    <div class="seta"><i class="fas fa-arrow-right"></i></div>
+                    <div class="comparacao-item">
+                        <div class="label">DEPOIS</div>
+                        <div class="placeholder-img img-depois">📸 Sua imagem de depois</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contato -->
+    <section id="contato" class="contato">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>Fale com a <span class="text-laranja">Manutech</span></h2>
+                <p>Estamos prontos para atender você em São Paulo</p>
+            </div>
+            <div class="contato-grid">
+                <div class="contato-info reveal">
+                    <div class="info-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <div>
+                            <h4>Telefone</h4>
+                            <p>(11) 99999-9999</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fab fa-whatsapp"></i>
+                        <div>
+                            <h4>WhatsApp</h4>
+                            <p>(11) 99999-9999</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>E-mail</h4>
+                            <p>contato@manutech.com.br</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h4>Atendimento</h4>
+                            <p>24 horas - 7 dias por semana</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contato-form reveal">
+                    <form id="contactForm">
+                        <input type="text" placeholder="Seu nome" required>
+                        <input type="tel" placeholder="WhatsApp" required>
+                        <select required>
+                            <option value="">Selecione o serviço</option>
+                            <option>Desentupimento de pia</option>
+                            <option>Desentupimento de ralo</option>
+                            <option>Desentupimento de vaso</option>
+                            <option>Desentupimento de esgoto</option>
+                            <option>Limpeza de caixa de gordura</option>
+                            <option>Outros</option>
+                        </select>
+                        <textarea rows="4" placeholder="Descreva seu problema..."></textarea>
+                        <button type="submit" class="btn btn-laranja btn-glow">Solicitar orçamento gratuito</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-wrench"></i>
+                    <span>Manu<span class="text-laranja">Tech</span></span>
+                    <p>Soluções em desentupimento com qualidade e agilidade em São Paulo.</p>
+                    <p class="orcamento-footer">🔧 Orçamento gratuito - Ligue ou chame no WhatsApp!</p>
+                </div>
+                <div class="footer-social">
+                    <h4>Redes sociais</h4>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Manutech - Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/5511999999999" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="script.js"></script>
 </body>
 </html>
