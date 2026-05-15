@@ -10,9 +10,10 @@
 </head>
 <body>
 
-    <!-- Botão da Sidebar (3 linhas) -->
+    <!-- Botão da Sidebar (superior esquerdo - sofisticado) -->
     <button class="sidebar-btn" id="sidebarBtn">
-        <i class="fas fa-bars"></i>
+        <i class="fas fa-sliders-h"></i>
+        <span>MENU</span>
     </button>
 
     <!-- Sidebar lateral -->
@@ -28,8 +29,8 @@
                     <li><i class="fas fa-sink"></i> Desentupimento de Pia</li>
                     <li><i class="fas fa-shower"></i> Desentupimento de Ralo</li>
                     <li><i class="fas fa-toilet"></i> Desentupimento de Vaso Sanitário</li>
-                    <li><i class="fas fa-database"></i> Desentupimento de Esgoto</li>
-                    <li><i class="fas fa-trash-alt"></i> Limpeza de Caixa de Gordura</li>
+                    <li><i class="fas fa-male"></i> Desentupimento de Mictórios</li>
+                    <li><i class="fas fa-water"></i> Tubulação de Água Pluvial</li>
                 </ul>
             </div>
             <div class="sidebar-section">
@@ -62,7 +63,7 @@
                 <ul>
                     <li><a href="#home">Início</a></li>
                     <li><a href="#servicos">Serviços</a></li>
-                    <li><a href="#contato">Contato</a></li>
+                    <li><a href="#agendamento">Agendamento</a></li>
                 </ul>
             </nav>
             <button class="mobile-menu-btn" id="mobileMenuBtn">
@@ -81,10 +82,7 @@
                 <h1 class="hero-title">Desentupimento <span class="text-laranja">24h</span> em São Paulo</h1>
                 <p class="hero-subtitle">Atendimento rápido, eficiente e com preço justo. Resolvemos seu problema sem sujeira e sem bagunça.</p>
                 <div class="hero-buttons">
-                    <a href="https://wa.me/5511999999999" class="btn btn-laranja btn-glow" target="_blank">
-                        <i class="fab fa-whatsapp"></i> Chame no WhatsApp
-                    </a>
-                    <a href="#servicos" class="btn btn-outline">Nossos serviços</a>
+                    <a href="#servicos" class="btn btn-3d">Nossos serviços</a>
                 </div>
             </div>
         </div>
@@ -110,132 +108,81 @@
                 </div>
                 <div class="servico-card card-3d reveal">
                     <i class="fas fa-toilet"></i>
-                    <h3>Desentupimento de Vaso</h3>
+                    <h3>Desentupimento de Vaso Sanitário</h3>
                     <p>Resolução rápida e sem quebrar paredes.</p>
                 </div>
                 <div class="servico-card card-3d reveal">
-                    <i class="fas fa-database"></i>
-                    <h3>Desentupimento de Esgoto</h3>
-                    <p>Limpeza e desobstrução de redes de esgoto.</p>
+                    <i class="fas fa-male"></i>
+                    <h3>Desentupimento de Mictórios</h3>
+                    <p>Atendimento especializado para banheiros comerciais.</p>
                 </div>
                 <div class="servico-card card-3d reveal">
-                    <i class="fas fa-trash-alt"></i>
-                    <h3>Caixa de Gordura</h3>
-                    <p>Limpeza e manutenção de caixas de gordura.</p>
-                </div>
-            </div>
-            
-            <!-- Card de orçamento mais criativo -->
-            <div class="orcamento-card reveal card-3d">
-                <div class="orcamento-icon">
-                    <i class="fas fa-file-invoice-dollar"></i>
-                </div>
-                <div class="orcamento-texto">
-                    <h3>Orçamento <span class="text-laranja">Gratuito</span></h3>
-                    <p>Os valores são definidos após avaliação do serviço. Solicite uma visita técnica sem compromisso!</p>
-                    <a href="#contato" class="btn btn-laranja btn-small">Solicitar agora</a>
+                    <i class="fas fa-water"></i>
+                    <h3>Tubulação de Água Pluvial</h3>
+                    <p>Limpeza e desobstrução de calhas e tubulações pluviais.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Seção de Imagens (4 imagens: 2 flutuantes + 2 extras) -->
+    <!-- Seção de Imagens -->
     <section class="imagens-section">
         <div class="container">
-            <!-- PRIMEIRAS 2 IMAGENS (FLUTUANTES) -->
             <div class="floating-images">
                 <img src="assets/servico1.jpeg" alt="Técnico trabalhando" class="float-img float-img-left" id="floatImgLeft">
                 <img src="assets/servico2.jpeg" alt="Técnico trabalhando" class="float-img float-img-right" id="floatImgRight">
             </div>
 
-            <!-- MAIS 2 IMAGENS (FIXAS ABAIXO) -->
             <div class="imagens-extras">
-                <div class="img-extra reveal card-3d">
-                    <img src="assets/servico3.jpg" alt="Serviço Manutech" class="extra-img">
-                </div>
-                <div class="img-extra reveal card-3d">
-                    <img src="assets/servico5.jpg" alt="Serviço Manutech" class="extra-img">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Antes e Depois (1 CARD) -->
-    <section class="antes-depois">
-        <div class="container">
-            <div class="section-header reveal">
-                <h2>Antes <span class="text-laranja">e Depois</span></h2>
-            </div>
-            <div class="galeria-grid">
-                <div class="card-comparacao reveal card-3d">
-                    <div class="comparacao-item">
-                        <div class="label">ANTES</div>
-                        <div class="placeholder-img img-antes">📸 Sua imagem de antes</div>
-                    </div>
-                    <div class="seta"><i class="fas fa-arrow-right"></i></div>
-                    <div class="comparacao-item">
-                        <div class="label">DEPOIS</div>
-                        <div class="placeholder-img img-depois">📸 Sua imagem de depois</div>
-                    </div>
+    <div class="img-extra reveal card-3d">
+        <img src="assets/servico3.jpg" alt="Serviço Manutech" class="extra-img">
+    </div>
+    <div class="img-extra reveal card-3d">
+        <img src="assets/servico5.jpg" alt="Serviço Manutech" class="extra-img">
+    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contato -->
-    <section id="contato" class="contato">
-        <div class="container">
-            <div class="section-header reveal">
-                <h2>Fale com a <span class="text-laranja">Manutech</span></h2>
-                <p>Estamos prontos para atender você em São Paulo</p>
-            </div>
-            <div class="contato-grid">
-                <div class="contato-info reveal">
-                    <div class="info-item">
-                        <i class="fas fa-phone-alt"></i>
-                        <div>
-                            <h4>Telefone</h4>
-                            <p>(11) 99999-9999</p>
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <i class="fab fa-whatsapp"></i>
-                        <div>
-                            <h4>WhatsApp</h4>
-                            <p>(11) 99999-9999</p>
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-envelope"></i>
-                        <div>
-                            <h4>E-mail</h4>
-                            <p>contato@manutech.com.br</p>
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-clock"></i>
-                        <div>
-                            <h4>Atendimento</h4>
-                            <p>24 horas - 7 dias por semana</p>
-                        </div>
-                    </div>
+    <!-- Antes e Depois -->
+<!-- Antes e Depois -->
+<section class="antes-depois">
+    <div class="container">
+        <div class="section-header reveal">
+            <h2>Antes <span class="text-laranja">e Depois</span></h2>
+        </div>
+        <div class="galeria-grid">
+            <div class="card-comparacao reveal card-3d">
+                <div class="comparacao-item">
+                    <div class="label">ANTES</div>
+                    <img src="assets/servico6.jpeg" alt="Antes" class="antes-depois-img">
                 </div>
-                <div class="contato-form reveal">
-                    <form id="contactForm">
-                        <input type="text" placeholder="Seu nome" required>
-                        <input type="tel" placeholder="WhatsApp" required>
-                        <select required>
-                            <option value="">Selecione o serviço</option>
-                            <option>Desentupimento de pia</option>
-                            <option>Desentupimento de ralo</option>
-                            <option>Desentupimento de vaso</option>
-                            <option>Desentupimento de esgoto</option>
-                            <option>Limpeza de caixa de gordura</option>
-                            <option>Outros</option>
-                        </select>
-                        <textarea rows="4" placeholder="Descreva seu problema..."></textarea>
-                        <button type="submit" class="btn btn-laranja btn-glow">Solicitar orçamento gratuito</button>
-                    </form>
+                <div class="seta"><i class="fas fa-arrow-right"></i></div>
+                <div class="comparacao-item">
+                    <div class="label">DEPOIS</div>
+                    <img src="assets/servico7.jpeg" alt="Depois" class="antes-depois-img">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+    <!-- Agendamento WhatsApp -->
+    <section id="agendamento" class="agendamento">
+        <div class="container">
+            <div class="agendamento-content reveal">
+                <div class="agendamento-card card-3d">
+                    <i class="fab fa-whatsapp"></i>
+                    <h2>Atendimento <span class="text-laranja">24h</span></h2>
+                    <p class="agendamento-texto">
+                        <a href="https://wa.me/5511998839008" class="agendamento-link" id="whatsappLink">
+                            Faça seu agendamento clicando aqui
+                        </a>
+                    </p>
+                    <div class="agendamento-numero">
+                        <p> (11) 98839-9008</p>
+                        <p> (11) 91488-6479</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -248,14 +195,12 @@
                     <i class="fas fa-wrench"></i>
                     <span>Manu<span class="text-laranja">Tech</span></span>
                     <p>Soluções em desentupimento com qualidade e agilidade em São Paulo.</p>
-                    <p class="orcamento-footer">🔧 Orçamento gratuito - Ligue ou chame no WhatsApp!</p>
                 </div>
                 <div class="footer-social">
                     <h4>Redes sociais</h4>
                     <div class="social-icons">
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.instagram.com/manutechsp/"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/people/Manutechsp-Santos/pfbid0FpGY7U7Ssjihipa9LeXp8LA2FVCAsvxk8ibfLHXiy3wr15gNrQNX62HDMNpnY1Qcl/"><i class="fab fa-facebook"></i></a>
                     </div>
                 </div>
             </div>
@@ -265,7 +210,8 @@
         </div>
     </footer>
 
-    <a href="https://wa.me/5511999999999" class="whatsapp-float" target="_blank">
+    <!-- WhatsApp Float (apenas 1) -->
+    <a href="https://wa.me/5511998839008" class="whatsapp-float" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
 
