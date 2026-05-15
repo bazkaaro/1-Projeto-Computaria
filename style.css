@@ -72,9 +72,22 @@ body {
 .logo-img {
     height: 30px;
     width: auto;
-    background: #000;
+    background-color: transparent;
+    mix-blend-mode: normal;
+    filter: brightness(1);
 }
 
+/* No mobile, garantir que a logo fique visível */
+@media (max-width: 768px) {
+    .logo-img {
+        background-color: transparent;
+        filter: drop-shadow(0 0 2px rgba(0,0,0,0.5));
+    }
+    
+    .hero-image-central img {
+        background-color: transparent;
+    }
+}
 .nav ul {
     display: flex;
     gap: 20px;
@@ -1101,11 +1114,74 @@ section {
 
 .bg-canvas {
     position: fixed;
-    inset: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
     pointer-events: none;
-    opacity: 0.95;
-    background: transparent;
+    opacity: 0.10;
+}
+
+/* Fundo preto puro para o body no mobile */
+body {
+   body {
+    font-family: 'Inter', sans-serif;
+    background-color: #000000;
+    color: #E0E0E0;
+    line-height: 1.6;
+    overflow-x: hidden;
+    position: relative;
+    min-height: 100vh;
+}
+} 
+
+/* Garantir que o fundo seja preto em todos os dispositivos */
+html {
+    background-color: #000000;
+}
+
+/* Fundo preto de fallback caso o canvas demore */
+.bg-black-fallback {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000000;
+    z-index: -3;
+    pointer-events: none;
+}
+
+/* ==================== CORREÇÕES PARA MOBILE ==================== */
+@media (max-width: 768px) {
+    body {
+        background-color: #000000 !important;
+    }
+    
+    html {
+        background-color: #000000 !important;
+    }
+    
+    .bg-canvas {
+        opacity: 0.25;
+        z-index: -2;
+    }
+    
+    .bg-black-fallback {
+        display: block;
+    }
+    
+    .hero-title {
+        font-size: 1.6rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 0.9rem;
+    }
+    
+    .logo-img {
+        background: transparent !important;
+        mix-blend-mode: normal;
+    }
 }
