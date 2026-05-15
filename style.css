@@ -976,6 +976,11 @@ section {
         max-width: 100%;
     }
 
+    .float-img-left,
+    .float-img-right {
+        transform: translateX(0) scale(1);
+    }
+
     .imagens-extras {
         flex-direction: column;
         gap: 20px;
@@ -1092,4 +1097,15 @@ section {
     .agendamento-numero p {
         font-size: 0.9rem;
     }
+}
+
+.bg-canvas {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.95;
+    background: transparent;
 }
