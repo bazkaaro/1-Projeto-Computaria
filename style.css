@@ -9,6 +9,15 @@ html, body {
     overflow-x: hidden;
 }
 
+img,
+picture,
+svg,
+video {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
 body {
     font-family: 'Inter', sans-serif;
     background-color: #000000;
@@ -92,6 +101,42 @@ body {
     color: var(--laranja);
     font-size: 1.5rem;
     cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .nav {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.98);
+        max-height: 0;
+        overflow: hidden;
+        visibility: hidden;
+        opacity: 0;
+        z-index: 1001;
+        transition: max-height 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    .nav.active {
+        max-height: 260px;
+        visibility: visible;
+        opacity: 1;
+    }
+
+    .nav ul {
+        flex-direction: column;
+        gap: 12px;
+        padding: 16px 0;
+    }
+
+    .nav a {
+        font-size: 1rem;
+    }
+
+    .mobile-menu-btn {
+        display: block;
+    }
 }
 
 /* Hero */
@@ -906,6 +951,55 @@ section {
         font-size: 0.9rem;
     }
 }
+
+@media (max-width: 768px) {
+    .header-container {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .hero {
+        padding-top: 90px;
+    }
+
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .floating-images {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 20px;
+    }
+
+    .float-img {
+        max-width: 100%;
+    }
+
+    .imagens-extras {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .img-extra {
+        max-width: 100%;
+    }
+
+    .card-comparacao {
+        padding: 20px;
+    }
+
+    .card-comparacao img {
+        max-height: none;
+    }
+
+    .footer-content,
+    .agendamento-content {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
 /* ==================== AGENDAMENTO WhatsApp ==================== */
 .agendamento {
     background: linear-gradient(135deg, #0D0D0D 0%, #050505 100%);
