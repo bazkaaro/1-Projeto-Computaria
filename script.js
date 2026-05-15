@@ -148,224 +148,94 @@ function fixLogoBackground() {
     });
 }
 
-// ==================== CANVAS BACKGROUND (CORRIGIDO) ====================
-let animationId = null;
+// ==================== EFEITO DE FAÍSCAS (SIMPLES E FUNCIONAL) ====================
+let animFrame = null;
 
-function initCanvasBackground() {
+function initSparks() {
     const canvas = document.getElementById('bgCanvas');
     if (!canvas) return;
     
-    // Se já existe animação, para ela
-    if (animationId) {
-        cancelAnimationFrame(animationId);
-        animationId = null;
-    }
+    if (animFrame) cancelAnimationFrame(animFrame);
     
     const ctx = canvas.getContext('2d');
     let width = window.innerWidth;
     let height = window.innerHeight;
     
-    // Configurações
     let particles = [];
-    const maxParticleCount = 180;
-    const minParticleCount = 40;
-    const mouseRadius = 150;
-    let mouseX = width / 2;
-    let mouseY = height / 2;
-    
-    const colors = ['#FF8C00', '#FF9D00', '#E67E00', '#FFB347', '#FF7A00'];
-    let scrollProgress = 0;
-    
-    function updateScrollProgress() {
-        const scrollY = window.scrollY;
-        const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-        scrollProgress = maxScroll > 0 ? scrollY / maxScroll : 0;
-        
-        const targetCount = minParticleCount;
-        if (particles.length !== targetCount) {
-            adjustParticleCount(targetCount);
-        }
-    }
-    
-    function adjustParticleCount(targetCount) {
-        const currentCount = particles.length;
-        
-        if (targetCount > currentCount) {
-            for (let i = 0; i < targetCount - currentCount; i++) {
-                addParticle();
-            }
-        } else if (targetCount < currentCount) {
-            particles = particles.slice(0, targetCount);
-        }
-    }
-    
-    function addParticle() {
-        particles.push({
-            x: Math.random() * width,
-            y: Math.random() * height,
-            radius: Math.random() * 2 + 0.8,
-            color: colors[Math.floor(Math.random() * colors.length)],
-            alpha: Math.random() * 0.5 + 0.25,
-            originalX: Math.random() * width,
-            originalY: Math.random() * height,
-            angle: Math.random() * Math.PI * 2,
-            floatSpeed: Math.random() * 0.02 + 0.007,
-            pulseSpeed: Math.random() * 0.015 + 0.008,
-            pulsePhase: Math.random() * Math.PI * 2
-        });
-    }
+    const particleCount = 200;
     
     function resizeCanvas() {
         width = window.innerWidth;
         height = window.innerHeight;
         canvas.width = width;
         canvas.height = height;
-        
-        const currentCount = particles.length;
+        initParticles();
+    }
+    
+    function initParticles() {
         particles = [];
-        for (let i = 0; i < currentCount; i++) {
-            addParticle();
+        for (let i = 0; i < particleCount; i++) {
+            particles.push({
+                x: Math.random() * width,
+                y: Math.random() * height,
+                radius: Math.random() * 3 + 1.5,  // ← aumentado
+                alpha: Math.random() * 0.6 + 0.3, // ← aumentado
+                speedX: (Math.random() - 0.5) * 0.4,
+                speedY: Math.random() * 0.3 + 0.1,
+                color: `hsl(${25 + Math.random() * 15}, 100%, 55%)`
+            });
         }
     }
     
-    // Inicializar partículas
-    for (let i = 0; i < minParticleCount; i++) {
-        addParticle();
-    }
-    
-    function drawParticles() {
-        if (!canvas || !ctx) return;
-        
+    function draw() {
         ctx.clearRect(0, 0, width, height);
         
-        let intensity = 0;
-        
-        const connectionIntensity = 0.28;
-        const particleAlphaMultiplier = 0.86;
-        
-        // Desenhar conexões primeiro (para ficar atrás)
-        ctx.globalAlpha = connectionIntensity * 1.2;
-        for (let i = 0; i < particles.length; i++) {
-            const maxConnections = 3;
-            let connections = 0;
-            
-            for (let j = i + 1; j < particles.length && connections < maxConnections; j++) {
-                const dx = particles[i].x - particles[j].x;
-                const dy = particles[i].y - particles[j].y;
-                const dist = Math.sqrt(dx * dx + dy * dy);
-                const maxDist = 180;
-                
-                if (dist < maxDist) {
-                    ctx.beginPath();
-                    ctx.moveTo(particles[i].x, particles[i].y);
-                    ctx.lineTo(particles[j].x, particles[j].y);
-                    ctx.strokeStyle = '#FF8C00';
-                    ctx.lineWidth = 0.8;
-                    ctx.globalAlpha = (connectionIntensity * (1 - dist / maxDist)) * 0.6;
-                    ctx.stroke();
-                    connections++;
-                }
-            }
-        }
-        
-        // Desenhar partículas
         for (let i = 0; i < particles.length; i++) {
             const p = particles[i];
             
             // Movimento
-            const speedFactor = 1;
-            p.angle += p.floatSpeed * speedFactor;
-            p.x = p.originalX + Math.sin(p.angle) * 35;
-            p.y = p.originalY + Math.cos(p.angle * 0.7) * 25;
+            p.x += p.speedX;
+            p.y += p.speedY;
             
-            p.x = Math.max(5, Math.min(width - 5, p.x));
-            p.y = Math.max(5, Math.min(height - 5, p.y));
-            
-            // Efeito mouse
-            const dx = mouseX - p.x;
-            const dy = mouseY - p.y;
-            const dist = Math.sqrt(dx * dx + dy * dy);
-            
-            let radius = p.radius;
-            let alpha = p.alpha * 0.9;
-            
-            // Pulsação leve
-            const pulse = Math.sin(Date.now() * p.pulseSpeed + p.pulsePhase) * 0.12;
-            radius = radius * (1 + pulse * 0.5);
-            radius = Math.max(radius, 0.4);
-            
-            // Cor
-            let finalColor = p.color;
-            
-            if (dist < mouseRadius) {
-                const force = (1 - dist / mouseRadius) * 0.4;
-                radius = radius * 1.2;
-                alpha = alpha + 0.2;
-                finalColor = '#FFB347';
+            // Reset quando sai da tela
+            if (p.y > height) {
+                p.y = 0;
+                p.x = Math.random() * width;
             }
+            if (p.x < 0) p.x = width;
+            if (p.x > width) p.x = 0;
             
-            // GLOW
-            ctx.beginPath();
-            ctx.shadowBlur = radius * 1.2;
-            ctx.shadowColor = finalColor;
-            ctx.arc(p.x, p.y, radius * 1.2, 0, Math.PI * 2);
-            ctx.fillStyle = finalColor;
-            ctx.globalAlpha = Math.min(alpha * particleAlphaMultiplier * 0.75, 0.7);
-            ctx.fill();
-            ctx.shadowBlur = 0;
-            ctx.shadowColor = 'transparent';
+            // Pisca mais forte
+            const twinkle = Math.sin(Date.now() * 0.003 * p.radius) * 0.3;
             
-            // Núcleo
+            // GLOW (brilho grande atrás)
             ctx.beginPath();
-            ctx.arc(p.x, p.y, radius * 0.7, 0, Math.PI * 2);
-            ctx.fillStyle = '#FFCC55';
-            ctx.globalAlpha = 0.85;
+            ctx.arc(p.x, p.y, p.radius * 2.5, 0, Math.PI * 2);
+            ctx.fillStyle = p.color;
+            ctx.globalAlpha = 0.4 + twinkle * 0.3;
             ctx.fill();
             
-            // Raio externo
-            if (intensity > 0.5) {
-                ctx.beginPath();
-                ctx.arc(p.x, p.y, radius * (1.4 + intensity * 0.7), 0, Math.PI * 2);
-                ctx.fillStyle = finalColor;
-                ctx.globalAlpha = alpha * 0.1 * intensity;
-                ctx.fill();
-            }
+            // Partícula principal (mais brilhante)
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+            ctx.fillStyle = p.color;
+            ctx.globalAlpha = 0.9 + twinkle;
+            ctx.fill();
             
-            // Efeito estrela
-            if (intensity > 0.8 && Math.random() < 0.05) {
-                for (let s = 0; s < 4; s++) {
-                    ctx.beginPath();
-                    const angle = (s * Math.PI * 2 / 4) + Date.now() * 0.005;
-                    const starX = p.x + Math.cos(angle) * radius * 2.5;
-                    const starY = p.y + Math.sin(angle) * radius * 2.5;
-                    ctx.arc(starX, starY, radius * 0.4, 0, Math.PI * 2);
-                    ctx.fillStyle = '#FFDD88';
-                    ctx.globalAlpha = 0.7;
-                    ctx.fill();
-                }
-            }
+            // Núcleo branco
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.radius * 0.5, 0, Math.PI * 2);
+            ctx.fillStyle = '#FFFFFF';
+            ctx.globalAlpha = 0.8;
+            ctx.fill();
         }
         
-        ctx.globalAlpha = 1;
-        animationId = requestAnimationFrame(drawParticles);
-    }
-    
-    function onMouseMove(e) {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
-    }
-    
-    function onScroll() {
-        updateScrollProgress();
+        animFrame = requestAnimationFrame(draw);
     }
     
     window.addEventListener('resize', resizeCanvas);
-    window.addEventListener('mousemove', onMouseMove);
-    window.addEventListener('scroll', onScroll);
-    
     resizeCanvas();
-    updateScrollProgress();
-    drawParticles();
+    draw();
 }
 
 // ==================== INICIALIZAR ====================
@@ -378,7 +248,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initSmoothScroll();
     initSidebar();
     fixLogoBackground();
-    initCanvasBackground();
+    initSparks(); // ← efeito de faíscas
     
     console.log('🚀 Manutech - Site carregado com sucesso!');
 });
