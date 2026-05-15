@@ -18,8 +18,7 @@ function initScrollReveal() {
     revealOnScroll();
 }
 
-// ==================== IMAGENS FLUTUANTES (APARECEM NO SCROLL) ====================
-// ==================== IMAGENS FLUTUANTES (APARECEM NO SCROLL) ====================
+// ==================== IMAGENS FLUTUANTES ====================
 function initFloatingImages() {
     const floatLeft = document.getElementById('floatImgLeft');
     const floatRight = document.getElementById('floatImgRight');
@@ -27,7 +26,6 @@ function initFloatingImages() {
     if (!floatLeft && !floatRight) return;
     
     function checkFloatingImages() {
-        // Agora verifica a seção de imagens, não a de Antes/Depois
         const imagensSection = document.querySelector('.imagens-section');
         if (!imagensSection) return;
         
@@ -35,7 +33,6 @@ function initFloatingImages() {
         const sectionBottom = imagensSection.getBoundingClientRect().bottom;
         const windowHeight = window.innerHeight;
         
-        // Se a seção de imagens ESTIVER VISÍVEL na tela
         if (sectionTop < windowHeight - 50 && sectionBottom > 0) {
             if (floatLeft) floatLeft.classList.add('visible');
             if (floatRight) floatRight.classList.add('visible');
@@ -46,7 +43,7 @@ function initFloatingImages() {
     }
     
     window.addEventListener('scroll', checkFloatingImages);
-    checkFloatingImages(); // Chamada inicial
+    checkFloatingImages();
 }
 
 // ==================== MOBILE MENU ====================
@@ -71,7 +68,7 @@ function initMobileMenu() {
     });
 }
 
-// ==================== FORMULÁRIO DE CONTATO ====================
+// ==================== FORMULÁRIO ====================
 function initContactForm() {
     const form = document.getElementById('contactForm');
     if (form) {
@@ -83,7 +80,7 @@ function initContactForm() {
     }
 }
 
-// ==================== HEADER SCROLL EFFECT ====================
+// ==================== HEADER SCROLL ====================
 function initHeaderScroll() {
     const header = document.querySelector('.header');
     window.addEventListener('scroll', () => {
@@ -97,7 +94,7 @@ function initHeaderScroll() {
     });
 }
 
-// ==================== SMOOTH SCROLL PARA LINKS INTERNOS ====================
+// ==================== SMOOTH SCROLL ====================
 function initSmoothScroll() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
@@ -151,7 +148,7 @@ function fixLogoBackground() {
     });
 }
 
-// ==================== INICIALIZAR TUDO ====================
+// ==================== INICIALIZAR ====================
 document.addEventListener('DOMContentLoaded', () => {
     initScrollReveal();
     initFloatingImages();
